@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:the_holy_quran/global.dart';
@@ -14,8 +14,18 @@ class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.noSurat});
 
   Future<Surah> _getDetailSurah() async {
-    var data = await Dio().get("https://equran.id/api/surat/$noSurat");
-    return Surah.fromJson(json.decode(data.toString()));
+    try {
+      // Load data dari assets local JSON file
+      String jsonString = await rootBundle.loadString(
+        'assets/datas/surah_$noSurat.json',
+      );
+      Map<String, dynamic> data = json.decode(jsonString);
+      print('✓ Data dimuat dari assets: ${data['nama_latin']}');
+      return Surah.fromJson(data);
+    } catch (e) {
+      print('✗ Error loading surah: $e');
+      throw Exception('Gagal memuat data surah $noSurat');
+    }
   }
 
   @override
@@ -24,9 +34,61 @@ class DetailScreen extends StatelessWidget {
       future: _getDetailSurah(),
       initialData: null,
       builder: (context, snapshot) {
+        // Loading state
+        if (snapshot.connectionState == ConnectionState.waiting &&
+            !snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: background,
+            body: Center(child: CircularProgressIndicator(color: primary)),
+          );
+        }
+
+        // Error state
+        if (snapshot.hasError) {
+          return Scaffold(
+            backgroundColor: background,
+            body: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.wifi_off_outlined, size: 60, color: primary),
+                    SizedBox(height: 16),
+                    Text(
+                      'Tidak Ada Data',
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      snapshot.error.toString().replaceFirst('Exception: ', ''),
+                      style: GoogleFonts.poppins(color: text, fontSize: 14),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      style: ElevatedButton.styleFrom(backgroundColor: primary),
+                      child: Text(
+                        'Kembali',
+                        style: GoogleFonts.poppins(color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+
         if (!snapshot.hasData) {
           return Scaffold(backgroundColor: background);
         }
+
         Surah surah = snapshot.data!;
         return Scaffold(
           backgroundColor: background,
@@ -127,7 +189,7 @@ class DetailScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               stops: [0, .6, 1],
-              colors: [Color(0xFFDF98FA), Color(0xFFB070FD), Color(0xFF9055FF)],
+              colors: [Color(0xFF1B7B4D), Color(0xFF27AE60), Color(0xFF2ECC71)],
             ),
           ),
         ),

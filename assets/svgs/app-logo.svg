@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#27AE60" opacity="0.1" stroke="#27AE60" stroke-width="2"/>
+  
+  <!-- Quran book representation -->
+  <g id="quran-book">
+    <!-- Left page -->
+    <path d="M 70 60 L 70 140 L 95 140 L 95 60 Z" fill="#27AE60" stroke="#1B7B4D" stroke-width="1.5"/>
+    
+    <!-- Right page -->
+    <path d="M 105 60 L 105 140 L 130 140 L 130 60 Z" fill="#2ECC71" stroke="#1B7B4D" stroke-width="1.5"/>
+    
+    <!-- Book spine -->
+    <rect x="95" y="60" width="10" height="80" fill="#1B7B4D"/>
+    
+    <!-- Text lines on left page -->
+    <line x1="75" y1="75" x2="90" y2="75" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="75" y1="85" x2="90" y2="85" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="75" y1="95" x2="88" y2="95" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="75" y1="110" x2="90" y2="110" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="75" y1="120" x2="90" y2="120" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    
+    <!-- Text lines on right page -->
+    <line x1="110" y1="75" x2="125" y2="75" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="110" y1="85" x2="125" y2="85" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="110" y1="95" x2="123" y2="95" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="110" y1="110" x2="125" y2="110" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+    <line x1="110" y1="120" x2="125" y2="120" stroke="#F0E68C" stroke-width="1" opacity="0.8"/>
+  </g>
+  
+  <!-- Decorative element - Islamic star -->
+  <g id="star" transform="translate(155, 55)">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#FFA500" stroke-width="1.5"/>
+    <path d="M 0,-8 L 2.4,-2.4 L 8,-0.8 L 3.2,2.4 L 4.8,8 L 0,4.8 L -4.8,8 L -3.2,2.4 L -8,-0.8 L -2.4,-2.4 Z" fill="#FFA500"/>
+  </g>
+</svg>

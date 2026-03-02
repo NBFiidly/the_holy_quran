@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               stops: [0, .6, 1],
-              colors: [Color(0xFFDF98FA), Color(0xFFB070FD), Color(0xFF9055FF)],
+              colors: [Color(0xFF1B7B4D), Color(0xFF27AE60), Color(0xFF2ECC71)],
             ),
           ),
         ),
@@ -167,9 +167,9 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(width: 24),
         Text(
-          "Al-Qur'an",
+          "Quran Fidly",
           style: GoogleFonts.poppins(
-            color: Colors.white,
+            color: primary,
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),

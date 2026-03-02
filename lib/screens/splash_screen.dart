@@ -19,30 +19,48 @@ class SplashScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                // Logo
+                SvgPicture.asset(
+                  'assets/svgs/app-logo.svg',
+                  width: 100,
+                  height: 100,
+                ),
+                const SizedBox(height: 24),
+                // App Name
                 Text(
-                  "Aplikasi Al-Qur'an",
+                  "Quran Fidly",
                   style: GoogleFonts.poppins(
-                    color: Colors.white,
-                    fontSize: 28,
+                    color: primary,
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
+                // Tagline
                 Text(
                   "Belajar Al-Quran dan\nmembacanya sehari sekali",
-                  style: GoogleFonts.poppins(fontSize: 18, color: text),
+                  style: GoogleFonts.poppins(fontSize: 16, color: text),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 48),
+                const SizedBox(height: 60),
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
                     Container(
-                      height: 450,
+                      height: 350,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: const Color(0xFF672CBC),
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          stops: [0, .6, 1],
+                          colors: [
+                            primary.withOpacity(0.8),
+                            primary.withOpacity(0.6),
+                            const Color(0xFF1B7B4D),
+                          ],
+                        ),
                       ),
                       child: SvgPicture.asset('assets/svgs/splash.svg'),
                     ),
@@ -54,7 +72,7 @@ class SplashScreen extends StatelessWidget {
                         child: GestureDetector(
                           behavior: HitTestBehavior.opaque,
                           onTap: () => {
-                            Navigator.of(context).push(
+                            Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
                                 builder: (context) => const HomeScreen(),
                               ),
@@ -66,13 +84,20 @@ class SplashScreen extends StatelessWidget {
                               vertical: 16,
                             ),
                             decoration: BoxDecoration(
-                              color: orange,
+                              color: primary,
                               borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: primary.withOpacity(0.4),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
                             ),
                             child: Text(
                               'Baca Al-Qur\'an',
                               style: GoogleFonts.poppins(
-                                color: const Color(0xFF091945),
+                                color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
                               ),
