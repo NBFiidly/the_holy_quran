@@ -193,7 +193,7 @@ class HomeScreen extends StatelessWidget {
       _bottomBarItem(icon: "assets/svgs/lamp-icon.svg", label: "Tips"),
       _bottomBarItem(icon: "assets/svgs/pray-icon.svg", label: "Ibadah"),
       _bottomBarItem(icon: "assets/svgs/doa-icon.svg", label: "Doa"),
-      _bottomBarItem(icon: "assets/svgs/bookmark-icon.svg", label: "Quran"),
+      _bottomBarItem(icon: "assets/svgs/bookmark-icon.svg", label: "Bookmark"),
     ],
   );
 

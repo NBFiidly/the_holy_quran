@@ -118,7 +118,7 @@ class SurahTab extends StatelessWidget {
               Text(
                 surah.nama,
                 style: GoogleFonts.amiri(
-                  color: primary,
+                  color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
