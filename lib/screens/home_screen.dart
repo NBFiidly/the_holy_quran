@@ -167,7 +167,7 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(width: 24),
         Text(
-          "Quran Fidly",
+          "Al-Qur'an",
           style: GoogleFonts.poppins(
             color: primary,
             fontSize: 25,
