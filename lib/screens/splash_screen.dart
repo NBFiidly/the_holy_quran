@@ -28,7 +28,7 @@ class SplashScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 // App Name
                 Text(
-                  "Quran Fidly",
+                  "Aplikasi Al-Qur'an",
                   style: GoogleFonts.poppins(
                     color: primary,
                     fontSize: 36,
@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 // Tagline
                 Text(
-                  "Belajar Al-Quran dan\nmembacanya sehari sekali",
+                  "Belajar Al-Quran dan\nTerjemahan bahasa Indonesia",
                   style: GoogleFonts.poppins(fontSize: 16, color: text),
                   textAlign: TextAlign.center,
                 ),
@@ -56,7 +56,9 @@ class SplashScreen extends StatelessWidget {
                           end: Alignment.bottomRight,
                           stops: [0, .6, 1],
                           colors: [
+                            // ignore: deprecated_member_use
                             primary.withOpacity(0.8),
+                            // ignore: deprecated_member_use
                             primary.withOpacity(0.6),
                             const Color(0xFF1B7B4D),
                           ],
@@ -88,6 +90,7 @@ class SplashScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: [
                                 BoxShadow(
+                                  // ignore: deprecated_member_use
                                   color: primary.withOpacity(0.4),
                                   blurRadius: 8,
                                   offset: const Offset(0, 4),

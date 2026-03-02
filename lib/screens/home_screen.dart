@@ -201,7 +201,9 @@ class HomeScreen extends StatelessWidget {
     required String icon,
     required String label,
   }) => BottomNavigationBarItem(
+    // ignore: deprecated_member_use
     icon: SvgPicture.asset(icon, color: text),
+    // ignore: deprecated_member_use
     activeIcon: SvgPicture.asset(icon, color: primary),
     label: label,
   );
